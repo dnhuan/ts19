@@ -5,15 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Kết quả tuyển sinh lớp 10 năm học 2018-2019</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="min.css" />
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script src="main.js"></script>
+    <script>$(function(){io().on("realtime",function(a){$("#current").text(a.o);$("#tong").text(a.s)})});</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120507465-2"></script>
+    <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-120507465-2");</script>
+
 </head>
 <body>
     <div class="header">Chúc mừng bạn đã bị lừa</div>
     <img src="giphy.gif" alt="vui hong?">
-    <div class="name">Website của <a href="fb.com/dnhuan">Đoàn Ngọc Huân</a></div>
+    <div class="name">Website của <a href="https://www.fb.com/dnhuan">Đoàn Ngọc Huân</a></div>
     <div class="footer">
         <span>Hiện đang có </span>
         <span id="current"><i>đang tải</i></span>
@@ -23,5 +25,11 @@
         <span>Tổng số lượt: </span>
         <span id="tong"><i>đang tải</i></span>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        var wid = '429906';
+        var uid = '203018';
+    </script>
+    <script type="text/javascript" src="//cdn.popcash.net/pop.js"></script>
 </body>
 </html>
