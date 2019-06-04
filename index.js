@@ -5,6 +5,9 @@ const io = require("socket.io")(server)
 var flatCache = require('flat-cache')
 var cache = flatCache.load('counter');
 var total = 0
+if(cache.getKey('key') == undefined){
+    cache.setKey('key', { value: total })
+}
 
 app.use(express.static("www"))
 
