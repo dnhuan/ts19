@@ -7,6 +7,7 @@ var cache = flatCache.load('counter');
 var total = 0
 if(cache.getKey('key') == undefined){
     cache.setKey('key', { value: total })
+    cache.save()
 }
 
 app.use(express.static("www"))
