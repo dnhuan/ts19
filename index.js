@@ -23,7 +23,7 @@ app.get("/",(req,res)=>{
     res.sendFile(__dirname + "/index.html")
 })
 
-server.listen(80)
+server.listen(443)
 
 io.on('connect',() => {
     total++
