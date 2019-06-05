@@ -5,7 +5,7 @@ const options = {
 }
 const express = require("express")
 const app = express()
-const server = require("https").createServer(options,app)
+const server = require("http").Server(app)
 const io = require("socket.io")(server)
 var flatCache = require('flat-cache')
 var cache = flatCache.load('counter');
@@ -23,7 +23,7 @@ app.get("/",(req,res)=>{
     res.sendFile(__dirname + "/index.html")
 })
 
-server.listen(443)
+server.listen(80)
 
 io.on('connect',() => {
     total++
