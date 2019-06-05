@@ -5,7 +5,7 @@ const options = {
 }
 const express = require("express")
 const app = express()
-const server = require("https").Server(options,app)
+const server = require("https").createServer(options,app)
 const io = require("socket.io")(server)
 var flatCache = require('flat-cache')
 var cache = flatCache.load('counter');
