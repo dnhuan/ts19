@@ -23,7 +23,7 @@ app.get("/",(req,res)=>{
     res.sendStatus(200)
 })
 
-server.listen(8080)
+server.listen(8083)
 
 io.on('connect',() => {
     total++
