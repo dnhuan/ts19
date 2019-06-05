@@ -1,20 +1,13 @@
-const app = require('express')();
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
+const io = require("socket.io").listen(8080)
 
-var flatCache = require('flat-cache')
+const flatCache = require('flat-cache')
 var cache = flatCache.load('counter')
 var total = 0
+
 if(cache.getKey('key') == undefined){
     cache.setKey('key', { value: total })
     cache.save()
 }
-
-app.get("/",(req,res)=>{
-    res.sendStatus(200)
-})
-
-http.listen(8080)
 
 io.on('connect',() => {
     total++
