@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="min.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=vietnamese" rel="stylesheet">
+    <script src="socket.io.slim.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>$(function(){io("http://bogddt.gq:8080").on("realtime",function(a){$("#current").text(a.o);$("#tong").text(a.s)})});</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120507465-2"></script>
@@ -31,7 +32,6 @@
         <span>Tổng số lượt: </span>
         <span id="tong"><i>đang tải</i></span>
     </div>
-    <script src="socket.io.slim.js"></script>
     <script type="text/javascript">
         var wid = '429906';
         var uid = '203018';
