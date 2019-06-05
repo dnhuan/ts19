@@ -1,6 +1,11 @@
+const fs = require('fs')
+const options = {
+    cert: fs.readFileSync('sslcert/crt.pem'),
+    key: fs.readFileSync('sslcert/key.pem')
+}
 const express = require("express")
 const app = express()
-const server = require("http").Server(app)
+const server = require("https").Server(options,app)
 const io = require("socket.io")(server)
 var flatCache = require('flat-cache')
 var cache = flatCache.load('counter');
@@ -11,6 +16,8 @@ if(cache.getKey('key') == undefined){
 }
 
 app.use(express.static("www"))
+app.use(require('helmet')());
+
 
 app.get("/",(req,res)=>{
     res.sendFile(__dirname + "/index.html")
