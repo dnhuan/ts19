@@ -1,7 +1,14 @@
+const fs = require('fs')
+const options = {
+    key: fs.readFileSync('www/sslcert/privkey.pem'),
+    cert: fs.readFileSync('www/sslcert/fullchain.pem'),
+    ca : fs.readFileSync('www/sslcert/chain.pem')
+}
 const express = require("express")
 const app = express()
-const server = require("http").Server(app)
+const server = require("https").Server(options,app)
 const io = require("socket.io")(server)
+const path = require("path")
 var flatCache = require('flat-cache')
 var cache = flatCache.load('counter');
 var total = 0
@@ -10,13 +17,16 @@ if(cache.getKey('key') == undefined){
     cache.save()
 }
 
-app.use(express.static("www"))
+app.use(express.static(path.join(__dirname, 'www')))
+app.use(require('helmet')());
+
 
 app.get("/",(req,res)=>{
+    console.log(__dirname);
     res.sendFile(__dirname + "/index.html")
 })
 
-server.listen(80)
+server.listen(8443)
 
 io.on('connect',() => {
     total++

@@ -1,4 +1,13 @@
+html{
+    background-color: #e9cdd1
+}
+
+a{
+    text-decoration: none
+}
+
 div{
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     font-size: 20px;
     margin-left: auto;
