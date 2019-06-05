@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=vietnamese" rel="stylesheet">
     <script src="socket.io.slim.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script>$(function(){io("http://bogddt.gq:8080").on("realtime",function(a){$("#current").text(a.o);$("#tong").text(a.s)})});</script>
+    <script>$(function(){io("http://bogddt.gq/socket",{transports:["websocket","polling","flashsocket"]}).on("realtime",function(a){$("#current").text(a.o);$("#tong").text(a.s)})});</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120507465-2"></script>
     <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-120507465-2");</script>
 
