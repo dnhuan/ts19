@@ -1,13 +1,29 @@
-const io = require("socket.io").listen(8080)
-
-const flatCache = require('flat-cache')
-var cache = flatCache.load('counter')
+const fs = require('fs')
+const options = {
+    key: fs.readFileSync('www/sslcert/privkey.pem'),
+    cert: fs.readFileSync('www/sslcert/fullchain.pem'),
+    ca : fs.readFileSync('www/sslcert/chain.pem')
+}
+const express = require("express")
+const app = express()
+const server = require("https").Server(options,app)
+const io = require("socket.io")(server)
+const path = require("path")
+var flatCache = require('flat-cache')
+var cache = flatCache.load('counter');
 var total = 0
-
 if(cache.getKey('key') == undefined){
     cache.setKey('key', { value: total })
     cache.save()
 }
+
+app.use(express.static(path.join(__dirname, 'www')))
+
+app.get("/",(req,res)=>{
+    res.sendStatus(200)
+})
+
+server.listen(8080)
 
 io.on('connect',() => {
     total++
