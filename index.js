@@ -1,7 +1,7 @@
 const fs = require('fs')
 const options = {
-    cert: fs.readFileSync('sslcert/crt.pem'),
-    key: fs.readFileSync('sslcert/key.pem')
+    cert: fs.readFileSync('sslcert/fullchain.pem'),
+    key: fs.readFileSync('sslcert/privkey.pem')
 }
 const express = require("express")
 const app = express()
