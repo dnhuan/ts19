@@ -29,6 +29,7 @@ server.listen(8083)
 
 function process(sock){
     sock.on('getData',sbd=>{
+        console.log(sbd);
         getDB(db=>{
                 var ketqua = db.collection("ketqua")
                 ketqua.findOne({"SBD":sbd}, (err,res)=>{
