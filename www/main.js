@@ -6,6 +6,14 @@ $(() => {
         console.log(value);
         socket.emit('getData',value);
     })
+    $(document).on('keypress',function(e) {
+        if(e.which == 13) {
+            e.preventDefault();
+            var value = $("#sobaodanh").val();
+            console.log(value);
+            socket.emit('getData',value);
+        }
+    });
     //
     socket.on("realtime",(data) => {
         $('#current').text(data.o);
