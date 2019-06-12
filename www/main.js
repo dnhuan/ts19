@@ -22,4 +22,10 @@ $(() => {
         $("#T").text(res.T);
         $("#C").text(res.C);
     })
+    socket.on('connect_error', function() {
+        console.log('Connection failed');
+    });
+    socket.on('reconnect_failed', function() {
+        console.log('Reconnection failed');
+    });
 })
