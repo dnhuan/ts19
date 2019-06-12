@@ -46,4 +46,4 @@ setInterval(() => {
         s: total
     }
     io.emit("realtime", data)
-}, 500)
+}, 1000)
