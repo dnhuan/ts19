@@ -1,5 +1,5 @@
 html{
-    background-color: #e9cdd1;
+    background-color: white;
 }
 
 a{
@@ -14,14 +14,27 @@ div{
     margin-right: auto;
 }
 
-img{
-    display: block;
-    margin-top: 10px;
+table{
+    margin-top: 30px;
     margin-left: auto;
-    margin-right: auto;
-    width: 90%;
+    margin-right:auto;
+    width: 100%;
+    font-size: 14px;
+    border-collapse:collapse;
+    border-spacing:0;
 }
 
+th,td{
+    border-style:solid;
+    border-width:1px;
+    overflow:hidden;
+    word-break:normal;
+    border-color:black;
+}
+
+input{
+    vertical-align: center
+}
 .container{
     display: flex;
     flex-flow: row wrap;
@@ -46,9 +59,6 @@ img{
     div{
         font-size: 10px;
     }
-    img{
-        width: 35%;
-    }
     .header{
         padding-top: 0%;
         padding-bottom: 0.5%;
@@ -60,14 +70,15 @@ img{
     .footer{
         padding-bottom: 1%;
     }
+    .f{
+        font-size: 10px;
+        padding-top: 2%;
+    }
 }
 
 @media only screen and (min-width: 768px) {
     div{
         font-size: 50px;
-    }
-    img{
-        width: 30%;
     }
     .header{
         padding-top: 2%;
@@ -81,5 +92,13 @@ img{
 
     .footer{
         padding-bottom: 1%;
+    }
+    table{
+        width: 50%;
+        font-size: 20px;
+    }
+    .f{
+        font-size: 30px;
+        padding-top: 2%;
     }
 }

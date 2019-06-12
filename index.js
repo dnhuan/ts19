@@ -9,6 +9,8 @@ const app = express()
 const server = require("https").Server(options,app)
 const io = require("socket.io")(server)
 const path = require("path")
+const connectDB = require('./database').connectDB
+const getDB = require('./database').getDB
 var flatCache = require('flat-cache')
 var cache = flatCache.load('counter');
 var total = 0
@@ -25,7 +27,36 @@ app.get("/",(req,res)=>{
 
 server.listen(8083)
 
-io.on('connect',() => {
+function process(sock){
+    sock.on('getData',sbd=>{
+        getDB(db=>{
+                var ketqua = db.collection("ketqua")
+                ketqua.findOne({"SBD":sbd}, (err,res)=>{
+                    if(err) console.error(err)
+                    var send = {
+                        s: null,
+                        h: null,
+                        e: null,
+                        v: null,
+                        a: null,
+                        t: null,
+                        c: null
+                    }
+                    if(res == null){
+                        sock.emit("dataRes",{})
+                    }else{
+                        console.log(res);
+                        send = res;
+                        delete send._id;
+                        sock.emit("dataRes",res)
+                    }
+                })
+            })
+    })
+}
+
+io.on('connect',(socket) => {
+    process(socket)
     total++
 })
 
@@ -46,4 +77,10 @@ setInterval(() => {
         s: total
     }
     io.emit("realtime", data)
-}, 500)
+}, 1000)
+
+connectDB()
+	.then(()=>{
+		console.log("Connected to MongoDB")
+	})
+	.catch(()=>{console.log("Error connecting to MongoDB")})

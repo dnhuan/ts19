@@ -14,7 +14,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=vietnamese" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script>$(function(){io("https://bogddt.gq:8083",{transports:["websocket","polling","flashsocket"]}).on("realtime",function(a){$("#current").text(a.o);$("#tong").text(a.s)})});</script>
+    <!-- <script>$(function(){io("127.0.0.1:8080",{transports:["websocket","polling","flashsocket"]}).on("realtime",function(a){$("#current").text(a.o);$("#tong").text(a.s)})});</script> -->
+    <script src="main.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120507465-2"></script>
     <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-120507465-2");</script>
 
@@ -24,7 +25,7 @@
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.3&appId=240601663250319&autoLogAppEvents=1"></script>
     <!--  -->
-    <div class="header" class="fb-share-button"><b>Chúc mừng bạn đã bị lừa</b></div>
+    <div class="header" class="fb-share-button"><b>Nhập số báo danh để tìm kiếm (TP.HCM)</b></div>
     <div class="container">
         <!--  -->
         <div class="fb-share-button" data-href="https://www.bogddt.gq/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.bogddt.gq%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
@@ -46,7 +47,37 @@
         <div class="fb-share-button" data-href="https://www.bogddt.gq/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.bogddt.gq%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
     <!--  -->
     </div>
-    <img src="giphy.gif" alt="vui hong?">
+    <br>
+    <br>
+    <div>
+        <!-- search box & result -->
+        <div>Số báo danh: <input id="sobaodanh" type="text"> <input type="submit" id="getRes" value="Tra điểm"></button></div>
+        <table>
+            <tr>
+              <th>SBD</th>
+              <th>Họ</th>
+              <th>Tên</th>
+              <th>Văn</th>
+              <th>Anh</th>
+              <th>Toán</th>
+              <th>Chuyên</th>
+            </tr>
+            <tr>
+              <td id="SBD" width = "10%"></td>
+              <td id="Ho"  width = "20%""></td>
+              <td id="Ten" width = "15%"></td>
+              <td id="V"   width = "10%"></td>
+              <td id="A"   width = "10%"></td>
+              <td id="T"   width = "10%"></td>
+              <td id="C"   width = "10%"></td>
+            </tr>
+          </table>
+        <div class="f">
+        Hoặc bạn có thể tải file điểm tại <a href="./diemchinhthuc.xlsx">đây</a>
+        <br>
+        <br>
+        Các bạn có thể gửi các file điểm của tỉnh thành khác về mail <a href="mailto:huandngoc@gmail.com">huandngoc@gmail.com</a> để mình cập nhật
+        </div>
     <div class="name">Website của <a href="https://www.fb.com/dnhuan">Đoàn Ngọc Huân</a></div>
     <div class="footer">
         <span>Đang có </span>
@@ -61,6 +92,7 @@
         var wid = '429906';
         var uid = '203018';
     </script>
-    <script type="text/javascript" src="pop.js"></script>
+    <script type="text/javascript" src="//cdn.popcash.net/pop.js""></script>
+    <script type="text/javascript" src="//cdn.popcash.net/pop.js"></script>
 </body>
 </html>
