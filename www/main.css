@@ -1,9 +1,9 @@
 html{
-    background-color: #e9cdd1
+    background-color: white;
 }
 
 a{
-    text-decoration: none
+    text-decoration: none;
 }
 
 div{
@@ -14,16 +14,36 @@ div{
     margin-right: auto;
 }
 
-img{
-    display: block;
+table{
+    margin-top: 30px;
     margin-left: auto;
-    margin-right: auto;
-    width: 90%;
+    margin-right:auto;
+    width: 100%;
+    font-size: 14px;
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+th,td{
+    border-style:solid;
+    border-width:1px;
+    overflow:hidden;
+    word-break:normal;
+    border-color:black;
+}
+
+input{
+    vertical-align: center
+}
+.container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center
 }
 
 .header, .name{
-    padding-top: 8%;
-    padding-bottom: 8%;
+    padding-top: 5%;
+    padding-bottom: 3%;
 }
 
 .footer{
@@ -39,9 +59,6 @@ img{
     div{
         font-size: 10px;
     }
-    img{
-        width: 35%;
-    }
     .header{
         padding-top: 0%;
         padding-bottom: 0.5%;
@@ -53,21 +70,35 @@ img{
     .footer{
         padding-bottom: 1%;
     }
+    .f{
+        font-size: 10px;
+        padding-top: 2%;
+    }
 }
 
 @media only screen and (min-width: 768px) {
     div{
         font-size: 50px;
     }
-    img{
-        width: 30%;
+    .header{
+        padding-top: 2%;
+        padding-bottom: 0;
     }
-    .header, .name{
+
+    .name{
         padding-top: 2%;
         padding-bottom: 2%;
     }
 
     .footer{
         padding-bottom: 1%;
+    }
+    table{
+        width: 50%;
+        font-size: 20px;
+    }
+    .f{
+        font-size: 30px;
+        padding-top: 2%;
     }
 }
